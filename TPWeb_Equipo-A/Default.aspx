@@ -13,7 +13,7 @@
         
     </div>
     <div class="mb-3">
-        <asp:Button CssClass="btn btn-primary" ID="btnSiguiente"  runat="server" OnClick="btnSiguiente_Click" Text="Button" />
+        <asp:Button Cssclass="btn btn-primary" ID="btnSiguiente"  runat="server" OnClick="btnSiguiente_Click" Text="Siguiente" />
         
     </div>
 

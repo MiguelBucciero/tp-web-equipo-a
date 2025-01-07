@@ -16,7 +16,7 @@ namespace TPWeb_Equipo_A
 
         protected void btnSiguiente_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Premios.aspx");
+            Response.Redirect("Premios.aspx", false);
         }
     }
 }
