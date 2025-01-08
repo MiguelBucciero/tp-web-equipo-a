@@ -7,16 +7,16 @@
     <h1>Promo Ganá!</h1>
 
     <div class="mb-3">
-        <asp:Label Cssclass="form-label" ID="Label1" runat="server" Text="LblVoucher">Ingresá el código de tu voucher!</asp:Label>
-        <asp:TextBox Cssclass="form-control" ID="txtVoucher" runat="server" placeholder="código voucher"></asp:TextBox>
+        <asp:Label CssClass="form-label" ID="Label1" runat="server" Text="LblVoucher">Ingresá el código de tu voucher!</asp:Label>
+        <asp:TextBox CssClass="form-control" ID="txtVoucher" runat="server" placeholder="código voucher"></asp:TextBox>
 
-        
     </div>
     <div class="mb-3">
-        <asp:Button Cssclass="btn btn-primary" ID="btnSiguiente"  runat="server" OnClick="btnSiguiente_Click" Text="Siguiente" />
-        
+        <asp:Button CssClass="btn btn-primary" ID="btnSiguiente" runat="server" OnClick="btnSiguiente_Click" Text="Canjear" />
     </div>
 
-    
+    <div class="row row-cols-1 row-cols-md-2 g-4">
 
+      
+    </div>
 </asp:Content>

@@ -4,7 +4,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <form class="row g-3">
         <div class="col-md-6">
             <asp:Label CssClass="form-label" ID="Label1" runat="server" Text="LbldNI">DNI</asp:Label>
             <asp:TextBox CssClass="form-control" ID="txtVoucher" runat="server" placeholder="999999999"></asp:TextBox>
@@ -16,11 +15,11 @@
 
 
         </div>
-        <div class="col-12">
+        <div class="col-6">
             <asp:Label CssClass="form-label" ID="Label3" runat="server" Text="LbldNI">Apellido</asp:Label>
             <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="Argento"></asp:TextBox>
         </div>
-        <div class="col-12">
+        <div class="col-6">
             <asp:Label CssClass="form-label" ID="Label4" runat="server" Text="LbldNI">Email</asp:Label>
             <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server" placeholder="Email@gmail.com"></asp:TextBox>
         </div>
@@ -42,6 +41,5 @@
             <asp:Button class="btn btn-primary" ID="Button1" runat="server" Text="Partipar!" />
             
         </div>
-    </form>
 
 </asp:Content>
