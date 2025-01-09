@@ -3,42 +3,40 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+        <br />
         <div class="col-md-6">
-            <asp:Label CssClass="form-label" ID="Label1" runat="server" Text="LbldNI">DNI</asp:Label>
-            <asp:TextBox CssClass="form-control" ID="txtVoucher" runat="server" placeholder="999999999"></asp:TextBox>
-
+            <Label for="txtDni" CssClass="form-label"  >DNI</Label>
+            <asp:TextBox CssClass="form-control" ID="txtDni" runat="server" AutoPostBack="true" OnTextChanged="txtDni_TextChanged" ></asp:TextBox>
         </div>
         <div class="col-md-6">
-            <asp:Label CssClass="form-label" ID="Label2" runat="server" Text="LbldNI">Nombre</asp:Label>
-            <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" placeholder="Pepe"></asp:TextBox>
-
-
+            <Label for="txtNombre" CssClass="form-label"  >Nombre</Label>
+            <asp:TextBox CssClass="form-control" ID="txtNombre" runat="server" ></asp:TextBox>
         </div>
         <div class="col-6">
-            <asp:Label CssClass="form-label" ID="Label3" runat="server" Text="LbldNI">Apellido</asp:Label>
-            <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="Argento"></asp:TextBox>
+            <Label for="txtApellido" CssClass="form-label"  >Apellido</Label>
+            <asp:TextBox CssClass="form-control" ID="txtApellido" runat="server" ></asp:TextBox>
         </div>
         <div class="col-6">
-            <asp:Label CssClass="form-label" ID="Label4" runat="server" Text="LbldNI">Email</asp:Label>
-            <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server" placeholder="Email@gmail.com"></asp:TextBox>
+            <Label for="txtEmail" CssClass="form-label"  >Email</Label>
+            <asp:TextBox CssClass="form-control" ID="txtEmail" runat="server" TextMode="Email" ></asp:TextBox>
         </div>
         <div class="col-md-6">
-            <asp:Label CssClass="form-label" ID="Label5" runat="server" Text="LbldNI">Dirección</asp:Label>
-            <asp:TextBox CssClass="form-control" ID="TextBox4" runat="server" placeholder="Av Siempre Viva"></asp:TextBox>
+            <Label for="txtDireccion" CssClass="form-label" >Dirección</Label>
+            <asp:TextBox CssClass="form-control" ID="txtDireccion" runat="server" ></asp:TextBox>
         </div>
         <div class="col-md-6">
-            <asp:Label CssClass="form-label" ID="Label6" runat="server" Text="LbldNI">Ciudad</asp:Label>
-            <asp:TextBox CssClass="form-control" ID="TextBox5" runat="server" placeholder="Del pecado"></asp:TextBox>
+            <Label for="txtCiudad" CssClass="form-label"  >Ciudad</Label>
+            <asp:TextBox CssClass="form-control" ID="txtCiudad" runat="server" ></asp:TextBox>
         </div>
 
         <div class="col-md-6">
-            <asp:Label CssClass="form-label" ID="Label7" runat="server" Text="LbldNI">CP</asp:Label>
-            <asp:TextBox CssClass="form-control" ID="TextBox6" runat="server" placeholder="xxxx"></asp:TextBox>
+            <Label for="txtCP" CssClass="form-label"  >Código Postal</Label>
+            <asp:TextBox CssClass="form-control" ID="txtCP" runat="server" ></asp:TextBox>
         </div>
-
+        <br />
         <div class="col-12">
-            <asp:Button class="btn btn-primary" ID="Button1" runat="server" Text="Partipar!" />
+            <asp:Button class="btn btn-primary" ID="btnParticipar" OnClick="btnParticipar_Click" runat="server" Text="Partipar!" />
+            <a href="Default.aspx" class="btn btn-primary" >Cancelar</a>
             
         </div>
 

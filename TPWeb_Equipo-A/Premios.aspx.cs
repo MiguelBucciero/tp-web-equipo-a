@@ -17,13 +17,20 @@ namespace TPWeb_Equipo_A
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
             ListaArticulos = negocio.listarConSp();
-
             if (!IsPostBack)
             {
                 repRepetidor.DataSource = ListaArticulos;
                 repRepetidor.DataBind();
             }
             //listaImgenes = negocio.listarImagenes();
+        }
+
+        protected void btnSeleccion_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            int idArticulo = int.Parse(btn.CommandArgument);
+            Session["idArticuloSeleccionado"] = idArticulo;
+            Response.Redirect("Datos.aspx", false);
         }
     }
 }

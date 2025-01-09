@@ -17,9 +17,11 @@ namespace TPWeb_Equipo_A
         {
             if (!IsPostBack)
             {
-                ArticuloNegocio negocio = new ArticuloNegocio();
-                listaVouchers = negocio.listarVouchers();
-                Session["listaVouchers"] = listaVouchers;
+                if (Session["listaVoucher"] == null)
+                {
+                    ArticuloNegocio negocio = new ArticuloNegocio();
+                    Session.Add("listaVouchers", negocio.listarVouchers());
+                }
             }
         }
 
@@ -28,10 +30,9 @@ namespace TPWeb_Equipo_A
             string voucher = txtVoucher.Text;
             listaVouchers = (List<Voucher>)Session["listaVouchers"];
 
-            if (ValidarVoucher(voucher, listaVouchers))
+            if (ValidarVoucher(voucher))
             {
                 Session.Add("voucher", voucher);
-                Session.Add("accesoPremios", true);
                 Response.Redirect("Premios.aspx", false);
             }
             else
@@ -40,11 +41,14 @@ namespace TPWeb_Equipo_A
             }
         }
 
-        private bool ValidarVoucher(string voucher, List<Voucher> listaVouchers)
+        private bool ValidarVoucher(string voucher)
         {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            List<Voucher> listaVouchers = negocio.listarVouchers();
+
             foreach (var Voucher in listaVouchers)
             {
-                if (Voucher.CodigoVoucher == voucher &&  Voucher.IdCliente != 1)
+                if (Voucher.CodigoVoucher == voucher && Voucher.IdCliente == 0)
                 {
                     return true;
                 }

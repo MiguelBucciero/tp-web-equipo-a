@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="Datos.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="FinalRegistro.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Premios.aspx" />
@@ -87,6 +88,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FinalRegistro.aspx.cs">
+      <DependentUpon>FinalRegistro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FinalRegistro.aspx.designer.cs">
+      <DependentUpon>FinalRegistro.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

@@ -117,6 +117,102 @@ namespace negocio
                 throw ex;
             }
         }
+        public List<Cliente> listarClientes()
+        {
+            List<Cliente> lista = new List<Cliente>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearProcedimiento("listarClientes");
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    Cliente aux = new Cliente();
+                    aux.Id = (int)datos.Lector["Id"];
+                    aux.Dni = (string)datos.Lector["Documento"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Apellido = (string)datos.Lector["Apellido"];
+                    aux.Email = (string)datos.Lector["Email"];
+                    aux.Direccion = (string)datos.Lector["Direccion"];
+                    aux.Ciudad = (string)datos.Lector["Ciudad"];
+                    aux.Cp = (int)datos.Lector["CP"];
+
+                    lista.Add(aux);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void guardarCliente(Cliente cliente)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("INSERT INTO Clientes (Documento, Nombre, Apellido, Email, Direccion, Ciudad, CP) VALUES (@Documento, @Nombre, @Apellido, @Email, @Direccion, @Ciudad, @CP)");
+                datos.setearParametro("@Documento", cliente.Dni);
+                datos.setearParametro("@Nombre", cliente.Nombre);
+                datos.setearParametro("@Apellido", cliente.Apellido);
+                datos.setearParametro("@Email", cliente.Email);
+                datos.setearParametro("@Direccion", cliente.Direccion);
+                datos.setearParametro("@Ciudad", cliente.Ciudad);
+                datos.setearParametro("@CP", cliente.Cp);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public int ultimoRegistroCliente(Cliente nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("SELECT * From Clientes Where Id=(Select MAX(Id) From Clientes)");
+                datos.ejecutarLectura();
+                if (datos.Lector.Read())
+                {
+                    nuevo.Id = (int)(datos.Lector["Id"]);
+                }
+                return nuevo.Id;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public void actualizarVoucher(string codigoVoucher, int idCliente, int idArticulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("UPDATE Vouchers SET IdCliente = @IdCliente, FechaCanje = @FechaCanje, IdArticulo = @IdArticulo WHERE CodigoVoucher = @CodigoVoucher");
+                datos.setearParametro("@CodigoVoucher", codigoVoucher);
+                datos.setearParametro("@IdCliente", idCliente);
+                datos.setearParametro("@FechaCanje", DateTime.Now);
+                datos.setearParametro("@IdArticulo", idArticulo);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
         public void agregar(Articulo nuevo)
         {
             AccesoDatos datos = new AccesoDatos();
