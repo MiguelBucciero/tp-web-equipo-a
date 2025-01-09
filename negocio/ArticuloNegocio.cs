@@ -92,6 +92,31 @@ namespace negocio
                 throw ex;
             }
         }
+        public List<Voucher> listarVouchers()
+        {
+            List<Voucher> lista = new List<Voucher>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearProcedimiento("listarVauchers");
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    Voucher aux = new Voucher();
+                    aux.CodigoVoucher = datos.Lector["CodigoVoucher"] as string;
+                    aux.IdCliente = datos.Lector["IdCliente"] != DBNull.Value ? (int)datos.Lector["IdCliente"] : default(int);
+                    aux.Fecha = datos.Lector["FechaCanje"] != DBNull.Value ? (DateTime)datos.Lector["FechaCanje"] : default(DateTime);
+                    aux.IdArticulo = datos.Lector["IdArticulo"] != DBNull.Value ? (int)datos.Lector["IdArticulo"] : default(int);
+
+                    lista.Add(aux);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public void agregar(Articulo nuevo)
         {
             AccesoDatos datos = new AccesoDatos();
@@ -295,7 +320,6 @@ namespace negocio
                 throw ex;
             }
         }
-
         public List<Articulo> listarImagenes(Articulo nuevo)
         {
             List<Articulo> lista = new List<Articulo>();

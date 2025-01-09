@@ -21,11 +21,8 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
-                            <a class="nav-link active" aria-current="page" href="Default.aspx">Inicio</a>
-                            <a class="nav-link" href="Premios.aspx">Premios</a>
-                            <a class="nav-link" href="Datos.aspx">Cargar Datos</a>
-                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                         </div>
+
                     </div>
                 </div>
             </nav>

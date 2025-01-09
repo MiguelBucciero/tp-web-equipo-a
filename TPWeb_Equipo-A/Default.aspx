@@ -12,7 +12,9 @@
 
     </div>
     <div class="mb-3">
-        <asp:Button CssClass="btn btn-primary" ID="btnSiguiente" runat="server" OnClick="btnSiguiente_Click" Text="Canjear" />
+        <asp:Button CssClass="btn btn-primary" ID="btnCanjear" runat="server" OnClick="btnCanjear_Click" Text="Canjear" />
+        <asp:Label ID="lblMensaje" runat="server" Text="" ForeColor="Red"></asp:Label>
+
     </div>
 
     <div class="row row-cols-1 row-cols-md-2 g-4">
