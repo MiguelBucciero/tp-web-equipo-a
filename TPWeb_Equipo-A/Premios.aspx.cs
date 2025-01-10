@@ -14,6 +14,10 @@ namespace TPWeb_Equipo_A
         public List<Articulo> ListaArticulos { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["voucher"] == null)
+            {
+                Response.Redirect("Default.aspx"); // Redirigir a la página de ingreso de voucher
+            }
             ArticuloNegocio negocio = new ArticuloNegocio();
             ListaArticulos = negocio.listarPremios();
             foreach (Articulo articulo in ListaArticulos) 

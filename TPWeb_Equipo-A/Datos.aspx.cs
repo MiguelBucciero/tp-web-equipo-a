@@ -14,6 +14,10 @@ namespace TPWeb_Equipo_A
         List<Cliente> listaClientes = new List<Cliente>();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["voucher"] == null)
+            {
+                Response.Redirect("Default.aspx"); 
+            }
             if (!IsPostBack)
             {
                 if (Session["listaClientes"] == null)
@@ -66,7 +70,7 @@ namespace TPWeb_Equipo_A
                 cliente.Cp = int.Parse(txtCP.Text);
 
                 negocio.guardarCliente(cliente);
-                int clienteId =negocio.ultimoRegistroCliente(cliente);
+                int clienteId = negocio.ultimoRegistroCliente(cliente);
                 string codigoVoucher = (string)Session["voucher"];
                 int idArticulo = (int)Session["idArticuloSeleccionado"];
                 negocio.actualizarVoucher(codigoVoucher, clienteId, idArticulo);
