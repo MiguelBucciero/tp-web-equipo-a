@@ -3,5 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
-    <h1>Genial! ya estas participando del concurso :)</h1>
+    <h1>!Genial! Ya estas participando del concurso :)</h1>
+    <br />
+    <a href="Default.aspx" class="btn btn-primary">Volver</a>
 </asp:Content>

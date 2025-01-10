@@ -2,7 +2,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
+    <div CssClass="form-label">
+        <h3 >Ingresa tus datos para participar!</h3>
+    </div>    
         <br />
         <div class="col-md-6">
             <Label for="txtDni" CssClass="form-label"  >DNI</Label>

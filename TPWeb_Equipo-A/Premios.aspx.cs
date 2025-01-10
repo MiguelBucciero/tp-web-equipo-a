@@ -12,19 +12,20 @@ namespace TPWeb_Equipo_A
     public partial class WebForm1 : System.Web.UI.Page
     {
         public List<Articulo> ListaArticulos { get; set; }
-        public List<Imagen> listaImgenes { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
             ListaArticulos = negocio.listarConSp();
+            foreach (Articulo articulo in ListaArticulos) 
+            { 
+                articulo.Imagenes = negocio.listarImagenes(articulo.Id); 
+            }
             if (!IsPostBack)
             {
                 repRepetidor.DataSource = ListaArticulos;
                 repRepetidor.DataBind();
             }
-            //listaImgenes = negocio.listarImagenes();
         }
-
         protected void btnSeleccion_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;

@@ -416,21 +416,20 @@ namespace negocio
                 throw ex;
             }
         }
-        public List<Articulo> listarImagenes(Articulo nuevo)
+        public List<Imagen> listarImagenes(int idArticulo)
         {
-            List<Articulo> lista = new List<Articulo>();
+            List<Imagen> lista = new List<Imagen>();
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("Select ImagenUrl From IMAGENES Where IdArticulo = @IdArticulo");
-                datos.setearParametro("@IdArticulo", nuevo.Imagen.IdArticulo);
+                datos.setearConsulta("SELECT ImagenUrl FROM IMAGENES WHERE IdArticulo = @IdArticulo");
+                datos.setearParametro("@IdArticulo", idArticulo);
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
-                    Articulo aux = new Articulo();
-                    aux.Imagen = new Imagen();
-                    aux.Imagen.Url = (string)datos.Lector["ImagenUrl"];
-                    lista.Add(aux);
+                    Imagen imagen = new Imagen();
+                    imagen.Url = (string)datos.Lector["ImagenUrl"];
+                    lista.Add(imagen);
                 }
                 return lista;
             }
@@ -439,6 +438,7 @@ namespace negocio
                 throw ex;
             }
         }
+
     }
 }
 
