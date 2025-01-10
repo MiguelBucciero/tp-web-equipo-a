@@ -15,7 +15,7 @@ namespace TPWeb_Equipo_A
         protected void Page_Load(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
-            ListaArticulos = negocio.listarConSp();
+            ListaArticulos = negocio.listarPremios();
             foreach (Articulo articulo in ListaArticulos) 
             { 
                 articulo.Imagenes = negocio.listarImagenes(articulo.Id); 
