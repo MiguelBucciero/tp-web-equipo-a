@@ -4,6 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
     <h1>!Genial! Ya estas participando del concurso :)</h1>
+    <h2>Se envio un email con la confirmacion !</h2>
     <br />
     <a href="Default.aspx" class="btn btn-primary">Volver</a>
 </asp:Content>

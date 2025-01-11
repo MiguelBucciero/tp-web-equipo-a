@@ -31,7 +31,7 @@ namespace TPWeb_Equipo_A
         protected void txtDni_TextChanged(object sender, EventArgs e)
         {
             string dni = txtDni.Text;
-            List<Cliente> listaClientes = (List<Cliente>)Session["listaClientes"];
+            listaClientes = (List<Cliente>)Session["listaClientes"];
             Cliente clienteExistente = listaClientes.FirstOrDefault(x => x.Dni == dni);
 
             if (clienteExistente != null)
@@ -47,7 +47,7 @@ namespace TPWeb_Equipo_A
         protected void btnParticipar_Click(object sender, EventArgs e)
         {
             string dni = txtDni.Text;
-            List<Cliente> listaClientes = (List<Cliente>)Session["listaClientes"];
+            listaClientes = (List<Cliente>)Session["listaClientes"];
             Cliente clienteExistente = listaClientes.FirstOrDefault(x => x.Dni == dni);
             ArticuloNegocio negocio = new ArticuloNegocio();
 
@@ -56,6 +56,9 @@ namespace TPWeb_Equipo_A
                 string codigoVoucher = (string)Session["voucher"];
                 int idArticulo = (int)Session["idArticuloSeleccionado"];
                 negocio.actualizarVoucher(codigoVoucher, clienteExistente.Id, idArticulo);
+                EmailService emailService = new EmailService();
+                emailService.armarCorreo(txtEmail.Text);
+                emailService.enviarEmail();
                 Response.Redirect("FinalRegistro.aspx");
             }
             else
@@ -74,10 +77,11 @@ namespace TPWeb_Equipo_A
                 string codigoVoucher = (string)Session["voucher"];
                 int idArticulo = (int)Session["idArticuloSeleccionado"];
                 negocio.actualizarVoucher(codigoVoucher, clienteId, idArticulo);
+                EmailService emailService = new EmailService();
+                emailService.armarCorreo(txtEmail.Text);
+                emailService.enviarEmail();
                 Response.Redirect("FinalRegistro.aspx");
             }
-
         }
-
     }
 }
