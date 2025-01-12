@@ -24,7 +24,6 @@ namespace TPWeb_Equipo_A
                 }
             }
         }
-
         protected void btnCanjear_Click(object sender, EventArgs e)
         {
             string voucher = txtVoucher.Text;
@@ -40,7 +39,6 @@ namespace TPWeb_Equipo_A
                 lblMensaje.Text = "El voucher ingresado ya ha sido canjeado o no es válido.";
             }
         }
-
         private bool ValidarVoucher(string voucher)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
@@ -55,6 +53,5 @@ namespace TPWeb_Equipo_A
             }
             return false;
         }
-
     }
 }

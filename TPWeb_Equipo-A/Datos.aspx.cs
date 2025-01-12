@@ -27,7 +27,6 @@ namespace TPWeb_Equipo_A
                 }
             }
         }
-
         protected void txtDni_TextChanged(object sender, EventArgs e)
         {
             string dni = txtDni.Text;

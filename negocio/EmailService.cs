@@ -41,7 +41,6 @@ namespace negocio
             }
             catch (SmtpException ex)
             {
-                // Log the exception or handle it accordingly
                 throw new Exception("Error sending email: " + ex.Message, ex);
             }
         }
