@@ -94,51 +94,65 @@
             return isValid;
         }
     </script>
+    <style>
+        .gradient-text {
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #ff6a00, #ffd800,#ffffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
-    <div CssClass="form-label">
-        <h3>Ingresa tus datos para participar!</h3>
-    </div>    
-    <br />
-    <div class="col-md-6">
-        <Label for="txtDni" CssClass="form-label">DNI</Label>
-        <asp:TextBox CssClass="form-control" ClientIDMode="Static" ID="txtDni" runat="server" AutoPostBack="true" OnTextChanged="txtDni_TextChanged"></asp:TextBox>
-        <span id="errorDni" class="text-danger"></span>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div>
+        <div cssclass="form-label">
+            <br />
+            <h2 class="display-5 fw-bolder mb-5"><span class="gradient-text">Ingresa tus datos para participar!</span></h2>
+        </div>
+        <div class="col-4">
+            <label for="txtDni" cssclass="form-label">DNI</label>
+            <asp:TextBox CssClass="form-control" ClientIDMode="Static" ID="txtDni" runat="server" AutoPostBack="true" OnTextChanged="txtDni_TextChanged"></asp:TextBox>
+            <span id="errorDni" class="text-danger"></span>
+        </div>
+        <div class="col-4">
+            <label for="txtNombre" cssclass="form-label">Nombre</label>
+            <asp:TextBox CssClass="form-control" ClientIDMode="Static" ID="txtNombre" runat="server"></asp:TextBox>
+            <span id="errorNombre" class="text-danger"></span>
+        </div>
+        <div class="col-4">
+            <label for="txtApellido" cssclass="form-label">Apellido</label>
+            <asp:TextBox CssClass="form-control" ClientIDMode="Static" ID="txtApellido" runat="server"></asp:TextBox>
+            <span id="errorApellido" class="text-danger"></span>
+        </div>
+        <div class="col-4">
+            <label for="txtEmail" cssclass="form-label">Email</label>
+            <asp:TextBox CssClass="form-control" ClientIDMode="Static" ID="txtEmail" runat="server" TextMode="Email"></asp:TextBox>
+            <span id="errorEmail" class="text-danger"></span>
+        </div>
+        <div class="col-4">
+            <label for="txtDireccion" cssclass="form-label">Dirección</label>
+            <asp:TextBox CssClass="form-control" ClientIDMode="Static" ID="txtDireccion" runat="server"></asp:TextBox>
+            <span id="errorDireccion" class="text-danger"></span>
+        </div>
+        <div class="col-4">
+            <label for="txtCiudad" cssclass="form-label">Ciudad</label>
+            <asp:TextBox CssClass="form-control" ClientIDMode="Static" ID="txtCiudad" runat="server"></asp:TextBox>
+            <span id="errorCiudad" class="text-danger"></span>
+        </div>
+        <div class="col-4">
+            <label for="txtCP" cssclass="form-label">Código Postal</label>
+            <asp:TextBox CssClass="form-control" ClientIDMode="Static" ID="txtCP" runat="server"></asp:TextBox>
+            <span id="errorCp" class="text-danger"></span>
+        </div>
+        <br />
+        <div class="col-12">
+            <asp:Button class="btn btn-primary" ID="btnParticipar" OnClientClick="return validar()" OnClick="btnParticipar_Click" runat="server" Text="Participar!" />
+            <a href="Default.aspx" class="btn btn-primary">Cancelar</a>
+        </div>
     </div>
-    <div class="col-md-6">
-        <Label for="txtNombre" CssClass="form-label">Nombre</Label>
-        <asp:TextBox CssClass="form-control" ClientIDMode="Static" ID="txtNombre" runat="server"></asp:TextBox>
-        <span id="errorNombre" class="text-danger"></span>
-    </div>
-    <div class="col-6">
-        <Label for="txtApellido" CssClass="form-label">Apellido</Label>
-        <asp:TextBox CssClass="form-control" ClientIDMode="Static" ID="txtApellido" runat="server"></asp:TextBox>
-        <span id="errorApellido" class="text-danger"></span>
-    </div>
-    <div class="col-6">
-        <Label for="txtEmail" CssClass="form-label">Email</Label>
-        <asp:TextBox CssClass="form-control" ClientIDMode="Static" ID="txtEmail" runat="server" TextMode="Email"></asp:TextBox>
-        <span id="errorEmail" class="text-danger"></span>
-    </div>
-    <div class="col-md-6">
-        <Label for="txtDireccion" CssClass="form-label">Dirección</Label>
-        <asp:TextBox CssClass="form-control" ClientIDMode="Static" ID="txtDireccion" runat="server"></asp:TextBox>
-        <span id="errorDireccion" class="text-danger"></span>
-    </div>
-    <div class="col-md-6">
-        <Label for="txtCiudad" CssClass="form-label">Ciudad</Label>
-        <asp:TextBox CssClass="form-control" ClientIDMode="Static" ID="txtCiudad" runat="server"></asp:TextBox>
-        <span id="errorCiudad" class="text-danger"></span>
-    </div>
-    <div class="col-md-6">
-        <Label for="txtCP" CssClass="form-label">Código Postal</Label>
-        <asp:TextBox CssClass="form-control" ClientIDMode="Static" ID="txtCP" runat="server"></asp:TextBox>
-        <span id="errorCp" class="text-danger"></span>
-    </div>
-    <br />
-    <div class="col-12">
-        <asp:Button class="btn btn-primary" ID="btnParticipar" OnClientClick="return validar()" OnClick="btnParticipar_Click" runat="server" Text="Participar!" />
-        <a href="Default.aspx" class="btn btn-primary">Cancelar</a>
-    </div>
+
 </asp:Content>
 

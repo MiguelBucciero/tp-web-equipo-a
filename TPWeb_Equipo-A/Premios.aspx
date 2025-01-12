@@ -5,17 +5,49 @@
         .card-img-top {
             width: 100%;
             height: 300px;
-            object-fit: cover;
+            object-fit:cover;
+        }
+        .carousel {
+            background-color: #424242; 
+            border: 3px solid #ff6a00;
         }
         .card {
-            max-width: 360px;
-            margin: 20px;
-            margin-top: 90px;
+            max-width: 350px;
+            margin: 15px;
+            margin-top: 20px;
+        }
+        .card-body {
+            background-color: #424242; 
+            border: 3px solid #ff6a00;
+            margin-top: -3px;
+        }
+        .card-title {
+            color: #ffffff !important;
+            font: bold !important;
+            margin-top: 15px !important;
+        }
+        .card-text {
+            color: #ffffff;
+            font: bold;
+            margin-top: 25px;
+        }
+
+        .gradient-text {
+            text-align:center;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #ff6a00, #ffd800,#ffffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row justify-content-center">
+        <div class="text-center">   
+            <h1 class="display-5 fw-bolder mb-5"><span class="gradient-text">Seleccioná el producto !</span></h1>
+        </div>
         <asp:Repeater ID="repRepetidor" runat="server">
             <ItemTemplate>
                 <div class="col-auto mb-4">
@@ -32,11 +64,11 @@
                             </div>
                             <a class="carousel-control-prev" href="#carousel<%# Eval("Id") %>" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Anterior</span>
+                                <span class="sr-only"></span>
                             </a>
                             <a class="carousel-control-next" href="#carousel<%# Eval("Id") %>" role="button" data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Siguiente</span>
+                                <span class="sr-only"></span>
                             </a>
                         </div>
                         <div class="card-body">
